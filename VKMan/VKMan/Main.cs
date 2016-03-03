@@ -17,11 +17,17 @@ namespace VKMan
         {
             fmSettings.init(); //Инициализируем настройки
             InitializeComponent();
+            if (fmSettings.VKAutoConnect)
+            {
+                Form S = new fmSettings();
+                S.ShowDialog(this);
+            }
         }
 
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form S = new fmSettings();
+            
             S.ShowDialog(this);
         }
     }
