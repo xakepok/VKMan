@@ -19,6 +19,8 @@ namespace VKMan
         public static string VkAppID = ""; //ID приложения
         public static string VkAppCode = ""; //Защищенный ключ
         public static bool VKAutoConnect = false; //Автосоединение при запуске программы
+        public static bool noConnect = false; //Запрет на автоподключение несмотря на галочку в настройках
+        public static bool need_close = false; //Нужно ли автоматически закрывать форму после показа
 
         public fmSettings()
         {
@@ -99,7 +101,7 @@ namespace VKMan
             if (VkAppID != "") tbSetVkAppID.Text = VkAppID;
             if (VkAppCode != "") tbSetVkAppCode.Text = VkAppCode;
             cbSetAutoConnect.Checked = (VKAutoConnect) ? true : false;
-            if (VKAutoConnect)
+            if (VKAutoConnect && !noConnect)
             {
                 wb.Visible = true;
                 wb.Navigate("https://oauth.vk.com/authorize?client_id=" + VkAppID + "&display=mobile&response_type=token&redirect_uri=https://oauth.vk.com/blank.html");
@@ -127,8 +129,10 @@ namespace VKMan
                 lblSetVKStatus.Text = "Подключено";
                 wb.Visible = false;
                 btnSetVkConnect.Enabled = false;
-                if (VKAutoConnect)
+                VK.connected = true;
+                if (VKAutoConnect && need_close)
                 {
+                    need_close = false;
                     this.Close();
                 }
             } else

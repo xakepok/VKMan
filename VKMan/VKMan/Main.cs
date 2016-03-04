@@ -13,13 +13,15 @@ namespace VKMan
 {
     public partial class fmMain : Form
     {
-        public fmMain()
+        public fmMain(string[] args)
         {
             fmSettings.init(); //Инициализируем настройки
             InitializeComponent();
             if (fmSettings.VKAutoConnect)
             {
                 Form S = new fmSettings();
+                if (args.Contains("/noConnect")) fmSettings.noConnect = true; //Запрет на автоподключение через параметры запуска
+                fmSettings.need_close = true;
                 S.ShowDialog(this);
             }
         }

@@ -9,6 +9,7 @@ namespace VKMan
     class VK
     {
         public static string token = "";
+        public static bool connected = false; //Текущий статус подключения
 
         /* Запоминаем токен */
         public static void set_token(string url)
