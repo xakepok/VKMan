@@ -30,15 +30,21 @@
         {
             this.gbSetApp = new System.Windows.Forms.GroupBox();
             this.gbSetVk = new System.Windows.Forms.GroupBox();
+            this.cbSetVKQueryLimit = new System.Windows.Forms.ComboBox();
+            this.lblSetVKQueryLimit = new System.Windows.Forms.Label();
+            this.tbSetVkIDGroup = new System.Windows.Forms.TextBox();
+            this.lblSetVKIDGroup = new System.Windows.Forms.Label();
+            this.cbSetAutoConnect = new System.Windows.Forms.CheckBox();
+            this.wb = new System.Windows.Forms.WebBrowser();
             this.btnSetVkConnect = new System.Windows.Forms.Button();
             this.lblSetVKStatus = new System.Windows.Forms.Label();
             this.tbSetVkAppCode = new System.Windows.Forms.TextBox();
             this.lblSetVkAppCode = new System.Windows.Forms.Label();
             this.tbSetVkAppID = new System.Windows.Forms.TextBox();
             this.lblSetVkAppID = new System.Windows.Forms.Label();
-            this.wb = new System.Windows.Forms.WebBrowser();
-            this.cbSetAutoConnect = new System.Windows.Forms.CheckBox();
+            this.pbLoading = new System.Windows.Forms.PictureBox();
             this.gbSetVk.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // gbSetApp
@@ -52,6 +58,11 @@
             // 
             // gbSetVk
             // 
+            this.gbSetVk.Controls.Add(this.pbLoading);
+            this.gbSetVk.Controls.Add(this.cbSetVKQueryLimit);
+            this.gbSetVk.Controls.Add(this.lblSetVKQueryLimit);
+            this.gbSetVk.Controls.Add(this.tbSetVkIDGroup);
+            this.gbSetVk.Controls.Add(this.lblSetVKIDGroup);
             this.gbSetVk.Controls.Add(this.cbSetAutoConnect);
             this.gbSetVk.Controls.Add(this.wb);
             this.gbSetVk.Controls.Add(this.btnSetVkConnect);
@@ -66,6 +77,69 @@
             this.gbSetVk.TabIndex = 1;
             this.gbSetVk.TabStop = false;
             this.gbSetVk.Text = "Настройки ВК";
+            // 
+            // cbSetVKQueryLimit
+            // 
+            this.cbSetVKQueryLimit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSetVKQueryLimit.FormattingEnabled = true;
+            this.cbSetVKQueryLimit.Items.AddRange(new object[] {
+            "Максимум",
+            "Половина",
+            "Минимум"});
+            this.cbSetVKQueryLimit.Location = new System.Drawing.Point(188, 32);
+            this.cbSetVKQueryLimit.Name = "cbSetVKQueryLimit";
+            this.cbSetVKQueryLimit.Size = new System.Drawing.Size(168, 21);
+            this.cbSetVKQueryLimit.TabIndex = 12;
+            this.cbSetVKQueryLimit.SelectedIndexChanged += new System.EventHandler(this.cbSetVKQueryLimit_SelectedIndexChanged);
+            // 
+            // lblSetVKQueryLimit
+            // 
+            this.lblSetVKQueryLimit.AutoSize = true;
+            this.lblSetVKQueryLimit.Location = new System.Drawing.Point(185, 16);
+            this.lblSetVKQueryLimit.Name = "lblSetVKQueryLimit";
+            this.lblSetVKQueryLimit.Size = new System.Drawing.Size(259, 13);
+            this.lblSetVKQueryLimit.TabIndex = 11;
+            this.lblSetVKQueryLimit.Text = "Количество получаемых результатов за 1 запрос";
+            // 
+            // tbSetVkIDGroup
+            // 
+            this.tbSetVkIDGroup.Location = new System.Drawing.Point(188, 71);
+            this.tbSetVkIDGroup.Name = "tbSetVkIDGroup";
+            this.tbSetVkIDGroup.Size = new System.Drawing.Size(168, 20);
+            this.tbSetVkIDGroup.TabIndex = 9;
+            this.tbSetVkIDGroup.TextChanged += new System.EventHandler(this.tbSetVkIDGroup_TextChanged);
+            // 
+            // lblSetVKIDGroup
+            // 
+            this.lblSetVKIDGroup.AutoSize = true;
+            this.lblSetVKIDGroup.Location = new System.Drawing.Point(185, 55);
+            this.lblSetVKIDGroup.Name = "lblSetVKIDGroup";
+            this.lblSetVKIDGroup.Size = new System.Drawing.Size(58, 13);
+            this.lblSetVKIDGroup.TabIndex = 8;
+            this.lblSetVKIDGroup.Text = "ID Группы";
+            // 
+            // cbSetAutoConnect
+            // 
+            this.cbSetAutoConnect.AutoSize = true;
+            this.cbSetAutoConnect.Location = new System.Drawing.Point(188, 114);
+            this.cbSetAutoConnect.Name = "cbSetAutoConnect";
+            this.cbSetAutoConnect.Size = new System.Drawing.Size(244, 17);
+            this.cbSetAutoConnect.TabIndex = 7;
+            this.cbSetAutoConnect.Text = "Автоматически подключаться при запуске";
+            this.cbSetAutoConnect.UseVisualStyleBackColor = true;
+            this.cbSetAutoConnect.CheckedChanged += new System.EventHandler(this.cbSetAutoConnect_CheckedChanged);
+            // 
+            // wb
+            // 
+            this.wb.Location = new System.Drawing.Point(9, 139);
+            this.wb.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wb.Name = "wb";
+            this.wb.Size = new System.Drawing.Size(691, 462);
+            this.wb.TabIndex = 6;
+            this.wb.Visible = false;
+            this.wb.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wb_DocumentCompleted);
+            this.wb.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.wb_Navigated);
+            this.wb.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.wb_Navigating);
             // 
             // btnSetVkConnect
             // 
@@ -120,26 +194,15 @@
             this.lblSetVkAppID.TabIndex = 0;
             this.lblSetVkAppID.Text = "ИД Приложения";
             // 
-            // wb
+            // pbLoading
             // 
-            this.wb.Location = new System.Drawing.Point(9, 139);
-            this.wb.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wb.Name = "wb";
-            this.wb.Size = new System.Drawing.Size(691, 462);
-            this.wb.TabIndex = 6;
-            this.wb.Visible = false;
-            this.wb.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.wb_Navigated);
-            // 
-            // cbSetAutoConnect
-            // 
-            this.cbSetAutoConnect.AutoSize = true;
-            this.cbSetAutoConnect.Location = new System.Drawing.Point(188, 16);
-            this.cbSetAutoConnect.Name = "cbSetAutoConnect";
-            this.cbSetAutoConnect.Size = new System.Drawing.Size(244, 17);
-            this.cbSetAutoConnect.TabIndex = 7;
-            this.cbSetAutoConnect.Text = "Автоматически подключаться при запуске";
-            this.cbSetAutoConnect.UseVisualStyleBackColor = true;
-            this.cbSetAutoConnect.CheckedChanged += new System.EventHandler(this.cbSetAutoConnect_CheckedChanged);
+            this.pbLoading.Image = global::VKMan.Properties.Resources.ajax_loader;
+            this.pbLoading.Location = new System.Drawing.Point(450, 16);
+            this.pbLoading.Name = "pbLoading";
+            this.pbLoading.Size = new System.Drawing.Size(66, 66);
+            this.pbLoading.TabIndex = 13;
+            this.pbLoading.TabStop = false;
+            this.pbLoading.Visible = false;
             // 
             // fmSettings
             // 
@@ -154,6 +217,7 @@
             this.Load += new System.EventHandler(this.fmSettings_Load);
             this.gbSetVk.ResumeLayout(false);
             this.gbSetVk.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -170,5 +234,10 @@
         private System.Windows.Forms.WebBrowser wb;
         public System.Windows.Forms.TextBox tbSetVkAppID;
         private System.Windows.Forms.CheckBox cbSetAutoConnect;
+        private System.Windows.Forms.TextBox tbSetVkIDGroup;
+        private System.Windows.Forms.Label lblSetVKIDGroup;
+        private System.Windows.Forms.ComboBox cbSetVKQueryLimit;
+        private System.Windows.Forms.Label lblSetVKQueryLimit;
+        private System.Windows.Forms.PictureBox pbLoading;
     }
 }

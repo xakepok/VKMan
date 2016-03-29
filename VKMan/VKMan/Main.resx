@@ -117,7 +117,87 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="msMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="sfdExport.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>112, 17</value>
   </metadata>
+  <metadata name="msMainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>215, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAABMLAAATCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAo3VNB6N1TXqjdU3ao3VN/aN1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/aN1
+        TdqjdU16o3VNBwAAAAAAAAAAAAAAAKN1TQajdU28o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3Bo3VNBwAAAAAAAAAAo3VNeqN1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU17AAAAAAAAAACjdU3ao3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1TdoAAAAAAAAAAKN1TfyjdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/AAAAAAAAAAAo3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/AAAAAAAA
+        AACjdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf8AAAAAAAAAAKN1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/wAAAAAAAAAAo3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/AAAAAAAAAACjdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6R3UP/FqI//4dPG//Hq5P/z7ef/zrWf/6N1Tf+jdU3/qn9a/9/Pwv/z7ef/8+3n//Pt
+        5//j1cn/o3VN/6N1Tf+jdU3/o3VN/6N1Tf8AAAAAAAAAAKN1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+0jm3/8Oni///////////////////////n29D/o3VN/6h9V//u5t//////////
+        /////////////+fb0P+jdU3/o3VN/6N1Tf+jdU3/o3VN/wAAAAAAAAAAo3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/tpFx//r39f////////////////////////////v59/+3k3T/6NzS////
+        ///////////////////39PD/roVi/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/AAAAAAAAAACjdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6uBXf/18Ov/////////////////////////////////////////
+        ////////////////////////+fXy/7WQcP+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf8AAAAAAAAAAKN1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/4tPG////////////////////////////////////
+        //////////////////////////////v59/+2kXH/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/wAA
+        AAAAAAAAo3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/8Cghf//////////////////////////////
+        ////////////////////////////////////////7eTc/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/AAAAAAAAAACjdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+leFH/8+3n/////////////////+TW
+        y//QuKT/////////////////8+7p/8itlf/+/f3/////////////////w6aM/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf8AAAAAAAAAAKN1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/8uxmv//////////////
+        ///39PD/qoBb/7ONbP/////////////////g0cT/o3VN/9S/rP/////////////////69/X/r4dk/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/wAAAAAAAAAAo3VN/6N1Tf+jdU3/o3VN/6N1Tf+leFH/9fDs////
+        /////////////8Woj/+jdU3/roVi/////////////////+HSxP+jdU3/p3pU//Tv6v//////////////
+        ///q39b/pHdP/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/AAAAAAAAAACjdU3/o3VN/6N1Tf+jdU3/o3VN/8er
+        k//////////////////x6uT/pHZO/6N1Tf+xi2n/////////////////5NbL/6N1Tf+jdU3/ya6X////
+        ///////////////////JrZb/o3VN/6N1Tf+jdU3/o3VN/6N1Tf8AAAAAAAAAAKN1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/7+jh/////////////////8islP+jdU3/o3VN/8mul//////////////////j1cn/o3VN/6N1
+        Tf+melP/+fXy//////////////////Pu6f+jdU3/o3VN/6N1Tf+jdU3/o3VN/wAAAAAAAAAAo3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf/Ms53/1L+s/9S/rP/OtZ//pXhR/6N1Tf+thWH/7ubf//79/P//////+fb0/8qw
+        mf+jdU3/o3VN/6N1Tf++noH/1L+s/9C5pf/OtaD/ya2W/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/AAAAAAAA
+        AACjdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf8AAAAAAAAAAKN1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/wAAAAAAAAAAo3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/AAAAAAAAAACjdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf8AAAAAAAAAAKN1TfyjdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/AAAAAAAAAAAo3VN2qN1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3aAAAAAAAAAACjdU15o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1TXoAAAAAAAAAAKN1
+        TQajdU27o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3Bo3VNBgAA
+        AAAAAAAAAAAAAKN1TQajdU15o3VN2aN1TfyjdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1
+        Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1Tf+jdU3/o3VN/6N1TfyjdU3Zo3VNeaN1
+        TQYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA/////8AAAAOAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAA
+        AAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAA
+        AAGAAAABgAAAAYAAAAGAAAABwAAAA/////8=
+</value>
+  </data>
 </root>
