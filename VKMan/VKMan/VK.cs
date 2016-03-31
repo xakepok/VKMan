@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Xml;
 using System.IO;
+using System.Timers;
 
 namespace VKMan
 {
@@ -20,7 +21,6 @@ namespace VKMan
         public static string data = ""; //Данные для запроса
         private static XmlDocument XML = new XmlDocument(); //Результат запроса
         private static string error = ""; //Текст исключения для загрузки из ВК
-        private static bool proceed = false; //Метка завершения работы потока
 
         /* Запоминаем токен */
         public static void set_token(string url)
@@ -42,15 +42,15 @@ namespace VKMan
             return Out;
         }
 
-        private static void getxml()
+        private static void getxml(string method, string data, string fname)
         {
-            proceed = false;
+            Thread.Sleep(350);
             try
             {
-                XML.Load(VK.api_url + VK.method + ".xml?access_token=" + VK.token + "&" + VK.data);
+                XML.Load(VK.api_url + method + ".xml?access_token=" + VK.token + "&" + data);
                 try
                 {
-                    XML.Save(fmSettings.DirectoryTemp + @"\result.xml");
+                    XML.Save(fmSettings.DirectoryTemp + @"\" + fname + ".xml");
                 }
                 catch (Exception e2)
                 {
@@ -61,50 +61,76 @@ namespace VKMan
             {
                 VK.error = e.Message;
             }
-            proceed = true;
         }
 
-        public static string test()
+        public static void alco()
+        {
+            try
+            {
+                string[] arr = File.ReadAllLines(fmSettings.DirectoryTemp + @"\Alko.txt");
+                Random r = new Random();
+                bool need = true;
+                while (need)
+                {
+                    int i = r.Next(arr.Length);
+                    if (arr[i] != "")
+                    {
+                        string res = VK.GET("messages.send", "chat_id=63&message=" + arr[i]);
+                        //res = VK.GET("messages.send", "chat_id=28&message=" + arr[i]);
+                        need = false;
+                    }
+                }
+            }
+            catch (Exception e3)
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static void test()
         {
             var doc = new XmlDocument();
             int count = (fmSettings.VKQueryLimit == "Максимум") ? 200 : (fmSettings.VKQueryLimit == "Половина") ? 100 : (fmSettings.VKQueryLimit == "Минимум") ? 50 : 50;
             int offset = 0; //Смещение
             bool need = true; //Нужно ли запрашивать ещё
             VK.method = "groups.getBanned";
-            Thread t = new Thread(getxml);
-            string result = "";
-            while (need == true)
+            while (need)
             {
                 VK.data = "group_id=" + fmSettings.VkIDGroup + "&offset=" + offset.ToString() + "&count=" + count.ToString();
-                t.Start();
-                if (VK.error == "")
+                try
                 {
-                    doc.Load(fmSettings.DirectoryTemp + @"\result.xml");
-                    if (doc.DocumentElement.LocalName == "response")
+                    Thread t = new Thread(delegate () { getxml("groups.getBanned", "group_id=" + fmSettings.VkIDGroup + "&offset=" + offset.ToString() + "&count=" + count.ToString(), "ban_" + offset.ToString()); });
+                    if (!t.IsAlive)
                     {
-                        if (doc.DocumentElement.ChildNodes.Count < count + 1)
+                        Thread.Sleep(350);
+                        t.Start();
+                        if (VK.error == "")
                         {
-                            need = false;
-                        }
-                        else
-                        {
-                            offset = offset + count;
-                            need = true;
-                        }
-                        foreach (XmlNode noda in doc.DocumentElement)
-                        {
-                            if (noda.LocalName != "count")
+                            doc.Load(fmSettings.DirectoryTemp + @"\ban_" + offset.ToString() + ".xml");
+                            if (doc.DocumentElement.LocalName == "response")
                             {
-                                foreach (XmlNode item in noda.ChildNodes)
+                                if (doc.DocumentElement.ChildNodes.Count < count + 1)
                                 {
-                                    if (item.LocalName == "uid") result += item.InnerXml;
+                                    need = false;
+                                }
+                                else
+                                {
+                                    offset = offset + count;
+                                    need = true;
                                 }
                             }
                         }
                     }
                 }
+                catch (Exception te)
+                {
+                    Console.WriteLine(te.Message);
+                }
             }
-            return result;
         }
 
         /* Бан-лист */

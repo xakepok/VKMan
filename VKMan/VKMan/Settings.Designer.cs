@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmSettings));
             this.gbSetApp = new System.Windows.Forms.GroupBox();
             this.gbSetVk = new System.Windows.Forms.GroupBox();
+            this.pbLoading = new System.Windows.Forms.PictureBox();
             this.cbSetVKQueryLimit = new System.Windows.Forms.ComboBox();
             this.lblSetVKQueryLimit = new System.Windows.Forms.Label();
             this.tbSetVkIDGroup = new System.Windows.Forms.TextBox();
@@ -42,7 +44,6 @@
             this.lblSetVkAppCode = new System.Windows.Forms.Label();
             this.tbSetVkAppID = new System.Windows.Forms.TextBox();
             this.lblSetVkAppID = new System.Windows.Forms.Label();
-            this.pbLoading = new System.Windows.Forms.PictureBox();
             this.gbSetVk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +78,16 @@
             this.gbSetVk.TabIndex = 1;
             this.gbSetVk.TabStop = false;
             this.gbSetVk.Text = "Настройки ВК";
+            // 
+            // pbLoading
+            // 
+            this.pbLoading.Image = global::VKMan.Properties.Resources.ajax_loader;
+            this.pbLoading.Location = new System.Drawing.Point(450, 16);
+            this.pbLoading.Name = "pbLoading";
+            this.pbLoading.Size = new System.Drawing.Size(66, 66);
+            this.pbLoading.TabIndex = 13;
+            this.pbLoading.TabStop = false;
+            this.pbLoading.Visible = false;
             // 
             // cbSetVKQueryLimit
             // 
@@ -194,16 +205,6 @@
             this.lblSetVkAppID.TabIndex = 0;
             this.lblSetVkAppID.Text = "ИД Приложения";
             // 
-            // pbLoading
-            // 
-            this.pbLoading.Image = global::VKMan.Properties.Resources.ajax_loader;
-            this.pbLoading.Location = new System.Drawing.Point(450, 16);
-            this.pbLoading.Name = "pbLoading";
-            this.pbLoading.Size = new System.Drawing.Size(66, 66);
-            this.pbLoading.TabIndex = 13;
-            this.pbLoading.TabStop = false;
-            this.pbLoading.Visible = false;
-            // 
             // fmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,7 +212,9 @@
             this.ClientSize = new System.Drawing.Size(1026, 626);
             this.Controls.Add(this.gbSetVk);
             this.Controls.Add(this.gbSetApp);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fmSettings";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройки";
             this.Load += new System.EventHandler(this.fmSettings_Load);

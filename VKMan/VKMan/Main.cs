@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 
 namespace VKMan
@@ -28,6 +29,11 @@ namespace VKMan
                 if (args.Contains("/Vizil"))
                 {
                     string res = VK.GET("messages.send", "chat_id=28&message=Визиль порвался");
+                    Environment.Exit(0);
+                }
+                if (args.Contains("/Alco"))
+                {
+                    VK.alco();
                     Environment.Exit(0);
                 }
             }
@@ -68,9 +74,18 @@ namespace VKMan
 
         private void btnTest1_Click(object sender, EventArgs e)
         {
-            pbLoading.Visible = true;
-            textBox1.Text = VK.test();
-            pbLoading.Visible = false;
+            Thread t = new Thread(VK.test);
+            Thread w = new Thread(wait);
+            t.Start();
+            w.Start();
+            t.Join();
+            w.Abort();
+        }
+
+        private void wait()
+        {
+            Form wait = new fmWaiting();
+            wait.ShowDialog();
         }
     }
 }
