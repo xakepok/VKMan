@@ -17,10 +17,8 @@ namespace VKMan
         public static string token = "";
         public static bool connected = false; //Текущий статус подключения
         public static string api_url = "https://api.vk.com/method/"; //URL API
-        public static string method = ""; //Текущий метод для запроса
-        public static string data = ""; //Данные для запроса
         private static XmlDocument XML = new XmlDocument(); //Результат запроса
-        private static string error = ""; //Текст исключения для загрузки из ВК
+        public static string error = ""; //Текст исключения для загрузки из ВК
 
         /* Запоминаем токен */
         public static void set_token(string url)
@@ -44,7 +42,7 @@ namespace VKMan
 
         private static void getxml(string method, string data, string fname)
         {
-            Thread.Sleep(350);
+            //Thread.Sleep(350);
             try
             {
                 XML.Load(VK.api_url + method + ".xml?access_token=" + VK.token + "&" + data);
@@ -55,11 +53,13 @@ namespace VKMan
                 catch (Exception e2)
                 {
                     VK.error = e2.Message;
+                    return;
                 }
             }
             catch (Exception e)
             {
                 VK.error = e.Message;
+                return;
             }
         }
 
@@ -87,87 +87,56 @@ namespace VKMan
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public static void test()
+        /* Бан-лист */
+        public static void ban_list()
         {
+            VK.error = "";
+            if (!VK.connected) { VK.error = "Вы не соединены с ВК."; return; }
             var doc = new XmlDocument();
             int count = (fmSettings.VKQueryLimit == "Максимум") ? 200 : (fmSettings.VKQueryLimit == "Половина") ? 100 : (fmSettings.VKQueryLimit == "Минимум") ? 50 : 50;
             int offset = 0; //Смещение
             bool need = true; //Нужно ли запрашивать ещё
-            VK.method = "groups.getBanned";
             while (need)
             {
-                VK.data = "group_id=" + fmSettings.VkIDGroup + "&offset=" + offset.ToString() + "&count=" + count.ToString();
-                try
+                getxml("groups.getBanned", "group_id=" + fmSettings.VkIDGroup + "&offset=" + offset.ToString() + "&count=" + count.ToString(), "ban_" + offset.ToString());
+                if (VK.error == "")
                 {
-                    Thread t = new Thread(delegate () { getxml("groups.getBanned", "group_id=" + fmSettings.VkIDGroup + "&offset=" + offset.ToString() + "&count=" + count.ToString(), "ban_" + offset.ToString()); });
-                    if (!t.IsAlive)
+                    try
                     {
-                        Thread.Sleep(350);
-                        t.Start();
-                        if (VK.error == "")
+                        doc.Load(fmSettings.DirectoryTemp + @"\ban_" + offset.ToString() + ".xml");
+                        if (doc.DocumentElement.LocalName == "response")
                         {
-                            doc.Load(fmSettings.DirectoryTemp + @"\ban_" + offset.ToString() + ".xml");
-                            if (doc.DocumentElement.LocalName == "response")
+                            if (doc.DocumentElement.ChildNodes.Count < count + 1)
                             {
-                                if (doc.DocumentElement.ChildNodes.Count < count + 1)
-                                {
-                                    need = false;
-                                }
-                                else
-                                {
-                                    offset = offset + count;
-                                    need = true;
-                                }
+                                need = false;
+                            }
+                            else
+                            {
+                                offset = offset + count;
+                                need = true;
                             }
                         }
-                    }
-                }
-                catch (Exception te)
-                {
-                    Console.WriteLine(te.Message);
-                }
-            }
-        }
-
-        /* Бан-лист */
-        public static List<string> ban_list()
-        {
-            var doc = new XmlDocument();
-            int offset = 0; //Смещение
-            int count = (fmSettings.VKQueryLimit == "Максимум") ? 200 : (fmSettings.VKQueryLimit == "Половина") ? 100 : (fmSettings.VKQueryLimit == "Минимум") ? 50 : 50;
-            bool need = true; //Нужно ли запрашивать ещё
-            List<string> result = new List<string>(); //Результат
-            while (need == true)
-            {
-                doc.LoadXml(GET("groups.getBanned", "group_id=" + fmSettings.VkIDGroup + "&offset=" + offset.ToString() + "&count=" + count.ToString()));
-                if (doc.DocumentElement.LocalName == "response")
-                {
-                    if (doc.DocumentElement.ChildNodes.Count < count + 1)
-                    {
-                        need = false;
-                    }
-                    else
-                    {
-                        offset = offset + count;
-                        need = true;
-                    }
-                    foreach (XmlNode noda in doc.DocumentElement)
-                    {
-                        if (noda.LocalName != "count")
+                        if (doc.DocumentElement.LocalName == "error")
                         {
-                            foreach (XmlNode item in noda.ChildNodes)
+                            foreach (XmlNode en in doc.DocumentElement.ChildNodes)
                             {
-                                if (item.LocalName == "uid") result.Add(item.InnerXml);
+                                if (en.LocalName == "error_msg") VK.error = en.InnerText;
                             }
+                            need = false;
+                            return;
                         }
                     }
+                    catch (Exception ban_e)
+                    {
+                        VK.error = ban_e.Message;
+                        return;
+                    }
+                }
+                else
+                {
+                    return;
                 }
             }
-            return result;
         }
     }
 }

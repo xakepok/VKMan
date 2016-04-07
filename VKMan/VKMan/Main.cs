@@ -53,33 +53,15 @@ namespace VKMan
 
         private void tsmiMainExportBan_Click(object sender, EventArgs e)
         {
-            List<string> ban = VK.ban_list();
-            if (ban.Count > 0)
-            {
-                sfdExport.FileName = "ban-" + fmSettings.VkIDGroup + ".txt";
-                sfdExport.ShowDialog();
-                if (sfdExport.FileName != "")
-                {
-                    StreamWriter write_text;
-                    FileInfo file = new FileInfo(sfdExport.FileName);
-                    write_text = file.CreateText();
-                    foreach (string str in ban)
-                    {
-                        write_text.WriteLine(str);
-                    }
-                    write_text.Close();
-                }
-            }
-        }
-
-        private void btnTest1_Click(object sender, EventArgs e)
-        {
-            Thread t = new Thread(VK.test);
+            Thread t = new Thread(VK.ban_list);
             Thread w = new Thread(wait);
             t.Start();
             w.Start();
             t.Join();
             w.Abort();
+            this.Activate();
+            if (VK.error == "") MessageBox.Show("Данные успешно выгружены", "Операция завершена", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (VK.error != "") MessageBox.Show(VK.error, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void wait()

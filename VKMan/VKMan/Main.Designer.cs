@@ -37,7 +37,6 @@
             this.tsmiMainGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiMainExport = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiMainExportBan = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnTest1 = new System.Windows.Forms.Button();
             this.pbLoading = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.msMainMenu.SuspendLayout();
@@ -105,16 +104,6 @@
             this.tsmiMainExportBan.Text = "Бан-лист";
             this.tsmiMainExportBan.Click += new System.EventHandler(this.tsmiMainExportBan_Click);
             // 
-            // btnTest1
-            // 
-            this.btnTest1.Location = new System.Drawing.Point(12, 27);
-            this.btnTest1.Name = "btnTest1";
-            this.btnTest1.Size = new System.Drawing.Size(75, 23);
-            this.btnTest1.TabIndex = 1;
-            this.btnTest1.Text = "button1";
-            this.btnTest1.UseVisualStyleBackColor = true;
-            this.btnTest1.Click += new System.EventHandler(this.btnTest1_Click);
-            // 
             // pbLoading
             // 
             this.pbLoading.Image = global::VKMan.Properties.Resources.ajax_loader;
@@ -140,7 +129,6 @@
             this.ClientSize = new System.Drawing.Size(875, 474);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pbLoading);
-            this.Controls.Add(this.btnTest1);
             this.Controls.Add(this.msMainMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -164,7 +152,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiMainGroup;
         private System.Windows.Forms.ToolStripMenuItem tsmiMainExport;
         private System.Windows.Forms.ToolStripMenuItem tsmiMainExportBan;
-        private System.Windows.Forms.Button btnTest1;
         public System.Windows.Forms.PictureBox pbLoading;
         private System.Windows.Forms.TextBox textBox1;
     }
