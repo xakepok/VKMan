@@ -55,10 +55,42 @@ namespace VKMan
         {
             Thread t = new Thread(VK.ban_list);
             Thread w = new Thread(wait);
+            this.Visible = false;
             t.Start();
             w.Start();
             t.Join();
             w.Abort();
+            this.Visible = true;
+            this.Activate();
+            if (VK.error == "") MessageBox.Show("Данные успешно выгружены", "Операция завершена", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (VK.error != "") MessageBox.Show(VK.error, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void tsmiMainExportUsers_Click(object sender, EventArgs e)
+        {
+            Thread t = new Thread(VK.users_list);
+            Thread w = new Thread(wait);
+            this.Visible = false;
+            t.Start();
+            w.Start();
+            t.Join();
+            w.Abort();
+            this.Visible = true;
+            this.Activate();
+            if (VK.error == "") MessageBox.Show("Данные успешно выгружены", "Операция завершена", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (VK.error != "") MessageBox.Show(VK.error, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void tsmiMainExportWiki_Click(object sender, EventArgs e)
+        {
+            Thread t = new Thread(VK.wiki);
+            Thread w = new Thread(wait);
+            this.Visible = false;
+            t.Start();
+            w.Start();
+            t.Join();
+            w.Abort();
+            this.Visible = true;
             this.Activate();
             if (VK.error == "") MessageBox.Show("Данные успешно выгружены", "Операция завершена", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (VK.error != "") MessageBox.Show(VK.error, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -67,7 +99,14 @@ namespace VKMan
         private void wait()
         {
             Form wait = new fmWaiting();
-            wait.ShowDialog();
+            try
+            {
+                wait.ShowDialog();
+            }
+            catch (Exception e)
+            {
+
+            }
         }
     }
 }

@@ -37,10 +37,9 @@
             this.tsmiMainGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiMainExport = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiMainExportBan = new System.Windows.Forms.ToolStripMenuItem();
-            this.pbLoading = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tsmiMainExportUsers = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiMainExportWiki = new System.Windows.Forms.ToolStripMenuItem();
             this.msMainMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // sfdExport
@@ -92,7 +91,9 @@
             // tsmiMainExport
             // 
             this.tsmiMainExport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiMainExportBan});
+            this.tsmiMainExportBan,
+            this.tsmiMainExportUsers,
+            this.tsmiMainExportWiki});
             this.tsmiMainExport.Name = "tsmiMainExport";
             this.tsmiMainExport.Size = new System.Drawing.Size(119, 22);
             this.tsmiMainExport.Text = "Экспорт";
@@ -100,35 +101,29 @@
             // tsmiMainExportBan
             // 
             this.tsmiMainExportBan.Name = "tsmiMainExportBan";
-            this.tsmiMainExportBan.Size = new System.Drawing.Size(124, 22);
+            this.tsmiMainExportBan.Size = new System.Drawing.Size(156, 22);
             this.tsmiMainExportBan.Text = "Бан-лист";
             this.tsmiMainExportBan.Click += new System.EventHandler(this.tsmiMainExportBan_Click);
             // 
-            // pbLoading
+            // tsmiMainExportUsers
             // 
-            this.pbLoading.Image = global::VKMan.Properties.Resources.ajax_loader;
-            this.pbLoading.Location = new System.Drawing.Point(93, 27);
-            this.pbLoading.Name = "pbLoading";
-            this.pbLoading.Size = new System.Drawing.Size(66, 66);
-            this.pbLoading.TabIndex = 2;
-            this.pbLoading.TabStop = false;
-            this.pbLoading.Visible = false;
+            this.tsmiMainExportUsers.Name = "tsmiMainExportUsers";
+            this.tsmiMainExportUsers.Size = new System.Drawing.Size(156, 22);
+            this.tsmiMainExportUsers.Text = "Пользователи";
+            this.tsmiMainExportUsers.Click += new System.EventHandler(this.tsmiMainExportUsers_Click);
             // 
-            // textBox1
+            // tsmiMainExportWiki
             // 
-            this.textBox1.Location = new System.Drawing.Point(218, 97);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(580, 296);
-            this.textBox1.TabIndex = 3;
+            this.tsmiMainExportWiki.Name = "tsmiMainExportWiki";
+            this.tsmiMainExportWiki.Size = new System.Drawing.Size(156, 22);
+            this.tsmiMainExportWiki.Text = "Wiki-страницы";
+            this.tsmiMainExportWiki.Click += new System.EventHandler(this.tsmiMainExportWiki_Click);
             // 
             // fmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 474);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.pbLoading);
             this.Controls.Add(this.msMainMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -137,7 +132,6 @@
             this.Text = "VKManager";
             this.msMainMenu.ResumeLayout(false);
             this.msMainMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,8 +146,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiMainGroup;
         private System.Windows.Forms.ToolStripMenuItem tsmiMainExport;
         private System.Windows.Forms.ToolStripMenuItem tsmiMainExportBan;
-        public System.Windows.Forms.PictureBox pbLoading;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiMainExportUsers;
+        private System.Windows.Forms.ToolStripMenuItem tsmiMainExportWiki;
     }
 }
 

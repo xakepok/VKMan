@@ -30,7 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmSettings));
             this.gbSetApp = new System.Windows.Forms.GroupBox();
+            this.cbLogType = new System.Windows.Forms.ComboBox();
+            this.lblLogType = new System.Windows.Forms.Label();
+            this.tbSetDirectoryTemp = new System.Windows.Forms.TextBox();
+            this.lblSetDirectoryTemp = new System.Windows.Forms.Label();
             this.gbSetVk = new System.Windows.Forms.GroupBox();
+            this.tbSetVkTimeout = new System.Windows.Forms.TextBox();
+            this.lblSetVkTimeout = new System.Windows.Forms.Label();
             this.pbLoading = new System.Windows.Forms.PictureBox();
             this.cbSetVKQueryLimit = new System.Windows.Forms.ComboBox();
             this.lblSetVKQueryLimit = new System.Windows.Forms.Label();
@@ -44,21 +50,68 @@
             this.lblSetVkAppCode = new System.Windows.Forms.Label();
             this.tbSetVkAppID = new System.Windows.Forms.TextBox();
             this.lblSetVkAppID = new System.Windows.Forms.Label();
+            this.gbSetApp.SuspendLayout();
             this.gbSetVk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // gbSetApp
             // 
+            this.gbSetApp.Controls.Add(this.cbLogType);
+            this.gbSetApp.Controls.Add(this.lblLogType);
+            this.gbSetApp.Controls.Add(this.tbSetDirectoryTemp);
+            this.gbSetApp.Controls.Add(this.lblSetDirectoryTemp);
             this.gbSetApp.Location = new System.Drawing.Point(12, 12);
             this.gbSetApp.Name = "gbSetApp";
-            this.gbSetApp.Size = new System.Drawing.Size(290, 194);
+            this.gbSetApp.Size = new System.Drawing.Size(290, 470);
             this.gbSetApp.TabIndex = 0;
             this.gbSetApp.TabStop = false;
             this.gbSetApp.Text = "Настройки программы";
             // 
+            // cbLogType
+            // 
+            this.cbLogType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLogType.FormattingEnabled = true;
+            this.cbLogType.Items.AddRange(new object[] {
+            "Стандартный",
+            "Полный"});
+            this.cbLogType.Location = new System.Drawing.Point(9, 70);
+            this.cbLogType.Name = "cbLogType";
+            this.cbLogType.Size = new System.Drawing.Size(275, 21);
+            this.cbLogType.TabIndex = 18;
+            this.cbLogType.SelectedIndexChanged += new System.EventHandler(this.cbLogType_SelectedIndexChanged);
+            // 
+            // lblLogType
+            // 
+            this.lblLogType.AutoSize = true;
+            this.lblLogType.Location = new System.Drawing.Point(6, 55);
+            this.lblLogType.Name = "lblLogType";
+            this.lblLogType.Size = new System.Drawing.Size(26, 13);
+            this.lblLogType.TabIndex = 17;
+            this.lblLogType.Text = "Лог";
+            // 
+            // tbSetDirectoryTemp
+            // 
+            this.tbSetDirectoryTemp.Enabled = false;
+            this.tbSetDirectoryTemp.Location = new System.Drawing.Point(9, 32);
+            this.tbSetDirectoryTemp.Name = "tbSetDirectoryTemp";
+            this.tbSetDirectoryTemp.Size = new System.Drawing.Size(275, 20);
+            this.tbSetDirectoryTemp.TabIndex = 1;
+            this.tbSetDirectoryTemp.Text = "%AppData%\\VKMan";
+            // 
+            // lblSetDirectoryTemp
+            // 
+            this.lblSetDirectoryTemp.AutoSize = true;
+            this.lblSetDirectoryTemp.Location = new System.Drawing.Point(6, 16);
+            this.lblSetDirectoryTemp.Name = "lblSetDirectoryTemp";
+            this.lblSetDirectoryTemp.Size = new System.Drawing.Size(161, 13);
+            this.lblSetDirectoryTemp.TabIndex = 0;
+            this.lblSetDirectoryTemp.Text = "Папка для временных файлов";
+            // 
             // gbSetVk
             // 
+            this.gbSetVk.Controls.Add(this.tbSetVkTimeout);
+            this.gbSetVk.Controls.Add(this.lblSetVkTimeout);
             this.gbSetVk.Controls.Add(this.pbLoading);
             this.gbSetVk.Controls.Add(this.cbSetVKQueryLimit);
             this.gbSetVk.Controls.Add(this.lblSetVKQueryLimit);
@@ -74,15 +127,33 @@
             this.gbSetVk.Controls.Add(this.lblSetVkAppID);
             this.gbSetVk.Location = new System.Drawing.Point(308, 12);
             this.gbSetVk.Name = "gbSetVk";
-            this.gbSetVk.Size = new System.Drawing.Size(706, 607);
+            this.gbSetVk.Size = new System.Drawing.Size(1132, 607);
             this.gbSetVk.TabIndex = 1;
             this.gbSetVk.TabStop = false;
             this.gbSetVk.Text = "Настройки ВК";
             // 
+            // tbSetVkTimeout
+            // 
+            this.tbSetVkTimeout.Location = new System.Drawing.Point(9, 166);
+            this.tbSetVkTimeout.MaxLength = 4;
+            this.tbSetVkTimeout.Name = "tbSetVkTimeout";
+            this.tbSetVkTimeout.Size = new System.Drawing.Size(168, 20);
+            this.tbSetVkTimeout.TabIndex = 16;
+            this.tbSetVkTimeout.TextChanged += new System.EventHandler(this.tbSetVkTimeout_TextChanged);
+            // 
+            // lblSetVkTimeout
+            // 
+            this.lblSetVkTimeout.AutoSize = true;
+            this.lblSetVkTimeout.Location = new System.Drawing.Point(6, 150);
+            this.lblSetVkTimeout.Name = "lblSetVkTimeout";
+            this.lblSetVkTimeout.Size = new System.Drawing.Size(124, 13);
+            this.lblSetVkTimeout.TabIndex = 15;
+            this.lblSetVkTimeout.Text = "Таймаут (300-2000 мс.)";
+            // 
             // pbLoading
             // 
             this.pbLoading.Image = global::VKMan.Properties.Resources.ajax_loader;
-            this.pbLoading.Location = new System.Drawing.Point(450, 16);
+            this.pbLoading.Location = new System.Drawing.Point(1058, 484);
             this.pbLoading.Name = "pbLoading";
             this.pbLoading.Size = new System.Drawing.Size(66, 66);
             this.pbLoading.TabIndex = 13;
@@ -142,10 +213,10 @@
             // 
             // wb
             // 
-            this.wb.Location = new System.Drawing.Point(9, 139);
+            this.wb.Location = new System.Drawing.Point(450, 16);
             this.wb.MinimumSize = new System.Drawing.Size(20, 20);
             this.wb.Name = "wb";
-            this.wb.Size = new System.Drawing.Size(691, 462);
+            this.wb.Size = new System.Drawing.Size(674, 462);
             this.wb.TabIndex = 6;
             this.wb.Visible = false;
             this.wb.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wb_DocumentCompleted);
@@ -209,7 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 626);
+            this.ClientSize = new System.Drawing.Size(1452, 626);
             this.Controls.Add(this.gbSetVk);
             this.Controls.Add(this.gbSetApp);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -218,6 +289,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройки";
             this.Load += new System.EventHandler(this.fmSettings_Load);
+            this.gbSetApp.ResumeLayout(false);
+            this.gbSetApp.PerformLayout();
             this.gbSetVk.ResumeLayout(false);
             this.gbSetVk.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
@@ -242,5 +315,11 @@
         private System.Windows.Forms.ComboBox cbSetVKQueryLimit;
         private System.Windows.Forms.Label lblSetVKQueryLimit;
         private System.Windows.Forms.PictureBox pbLoading;
+        private System.Windows.Forms.TextBox tbSetDirectoryTemp;
+        private System.Windows.Forms.Label lblSetDirectoryTemp;
+        private System.Windows.Forms.Label lblSetVkTimeout;
+        private System.Windows.Forms.TextBox tbSetVkTimeout;
+        private System.Windows.Forms.ComboBox cbLogType;
+        private System.Windows.Forms.Label lblLogType;
     }
 }
